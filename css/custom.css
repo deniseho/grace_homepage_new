@@ -1,0 +1,174 @@
+body {
+  font-family: '微軟正黑體', 'Open Sans', Helvetica, Helvetica Neue, Arial, sans-serif;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.9);
+}
+
+* {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.logo{
+  position: absolute;
+  z-index: 101;
+  padding:10px;
+  left: 1rem;
+}
+
+/* ========== 首頁影片 ========== */
+article.video{
+  background: #6b6255;
+}
+
+video{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  transition: 1s opacity;
+  z-index: 101;
+}
+
+/*.stopfade { */
+   /*opacity: .5;*/
+/*}*/
+
+.homepage-menu {
+  position: absolute;
+  direction: rtl;
+  top: 1rem;
+  right: 0;  
+  width: 100vw;
+  z-index: 101;
+  text-align: right;
+}
+
+.homepage-menu ul{
+  transition: 0.3s ease-in-out;  
+}
+.homepage-menu ul li{
+  list-style: none;
+  text-align: center;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  transition: 0.3s ease-in-out;  
+  display: inline;
+  position: relative;
+}
+.homepage-menu ul li:hover{
+  transition: 0.3s ease-in-out;  
+  background: rgba(0,0,0,.3);  
+}
+
+.homepage-menu ul li:hover a{
+  color: rgba(255,255,255,1);
+  transition: 0.3s ease-in-out;  
+}
+.homepage-menu ul li a{
+  color: rgba(255,255,255,0.8);
+  text-decoration: none;
+  transition: 0.3s ease-in-out;    
+}
+
+.homepage-text{ 
+  z-index: 101;
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  direction: rtl;
+  color: rgba(255,255,255, 0.9);
+  padding: 1rem;
+  width: 100vh;
+  font-weight: 200;
+  text-align: right;
+}
+
+.homepage-text h1{
+  text-shadow: 1px 1px 4px rgba(0,0,0,.3);    
+  font-size: 30px;
+  margin:0;
+}
+
+.homepage-text div{
+  font-size: 18px;
+  line-height: 30px;
+}
+
+.pause { 
+  z-index: 101;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 65px;
+  text-align: center;
+  padding: .8rem;
+  border: none; 
+  margin: 1rem auto; 
+  font-size: 0.8rem 1.2rem;
+  background: rgba(255,255,255,0.1);
+  color: rgba(255,255,255,0.3);
+  cursor: pointer;
+  transition: .3s background;
+  transition: .3s linear;
+}
+.pause:hover { 
+   transform: scale(1.3);
+   background: rgba(255,255,255,0.7);
+   color: #333;
+}
+
+
+
+h1{
+    font-size: 32px;
+}
+
+/*主打商品*/
+.slide#slide01{
+  color: rgba(255,255,255,0.8);
+}
+
+.slide button{
+    border: 1px solid rgba(255,255,255,0.8);
+    background: none;
+    padding: 0.8rem 1.2rem;
+    margin-right: 0.4rem;
+    transition: 0.3s ease-in-out;
+}
+.slide button:hover{
+    background: rgba(255,255,255,0.15);
+}
+
+
+/*最新消息*/
+.slide#slide03{
+  color: rgba(0,0,0,0.6);
+}
+
+.slide h1{
+    margin: 0 6rem;
+}
+
+.slide section{
+    max-width: 600px;
+    margin: 1rem 6rem;
+}
+
+.slide section ul li {
+    float: left;
+    list-style:none;
+    line-height: 32px;
+    margin-left: -3rem;
+}
+
+.slide section ul li a{
+    color: rgba(0,0,0,0.6);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.slide section ul li a:hover{
+    color: rgba(255,255,255,0.5);
+}

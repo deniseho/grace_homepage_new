@@ -1,4 +1,5 @@
 (function ($) {
+var wh = window.innerHeight;
 
 	// Init ScrollMagic
     var controller = new ScrollMagic.Controller();
@@ -100,7 +101,6 @@
 		    
 		    // number for highlighting scenes
 			var breakID = $(breakSection).attr('id');
-
 		    // make scene
 		    var breakScene = new ScrollMagic.Scene({
 		        triggerElement: breakSection, // trigger CSS animation when header is in the middle of the viewport 
@@ -116,7 +116,6 @@
 	    // SCENE 3
 	    // change color of the nav back to dark
 		slides.forEach(function (slide, index) {
-
 			var slideScene = new ScrollMagic.Scene({
 		        triggerElement: slide // trigger CSS animation when header is in the middle of the viewport
 		    })
@@ -148,7 +147,7 @@
 
 	    introTl
 	    	.to($('#intro header, .scroll-hint'), 0.2, {autoAlpha: 0, ease:Power1.easeNone})
-	    	//.to($('#intro .bcg'), 1.4, {y: '20%', ease:Power1.easeOut}, '-=0.2')
+	    	// .to($('#intro .bcg'), 1.4, {y: '20%', ease:Power1.easeOut}, '-=0.2')
 	    	.to($('#intro'), 0.7, {autoAlpha: 0.5, ease:Power1.easeNone}, 0);
 
 		var introScene = new ScrollMagic.Scene({
@@ -167,8 +166,8 @@
 	    pinScene01Tl
 	    	.to($('#slide01 h1'), 0.2, {autoAlpha: 0, ease:Power1.easeNone}, 1.5)
 	    	.to($('#slide01 section'), 0.2, {autoAlpha: 0, ease:Power1.easeNone}, 1.5)
-	    	.set($('#slide01 h1'), {text: 'Rock Climbing'})
-	    	.set($('#slide01 p'), {text: "Remember that time spent on a rock climb isn't subtracted from your life span."})
+	    	// .set($('#slide01 h1'), {text: 'Rock Climbing22'})
+	    	// .set($('#slide01 p'), {text: "更多商品"})
 	    	.fromTo($('#slide01 h1'), 0.7, {y: '+=20'}, {y: 0, autoAlpha: 1, ease:Power1.easeOut}, '+=0.4')
 	    	.fromTo($('#slide01 section'), 0.6, {y: '+=20'}, {y: 0, autoAlpha: 1, ease:Power1.easeOut}, '-=0.6')
 	    	.set($('#slide01 h1'), {autoAlpha: 1}, '+=2');
