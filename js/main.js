@@ -1,5 +1,6 @@
 (function ($) {
-// ========== homepage video ==========
+
+// ==================== homepage video ====================
 var vid = document.getElementById("bg-video");
 var pauseButton = document.querySelector(".pause");
 
@@ -33,7 +34,7 @@ pauseButton.addEventListener("click", function() {
 })
 
 
-// nav dots
+// ==================== nav dots ====================
 $('nav').hide();
 $(window).on("scroll", function() {
     var scrollPosition = pageYOffset;
@@ -44,6 +45,23 @@ $(window).on("scroll", function() {
     }
 });
 
+//  bind scroll to anchor links
+$(document).on("click", "a[href^='#']", function (e) {
+	var id = $(this).attr("href");
+	if ($(id).length > 0) {
+		e.preventDefault();
+
+		// trigger scroll
+		controller.scrollTo(id);
+
+			// if supported by the browser we can even update the URL.
+		if (window.history && window.history.pushState) {
+			history.pushState("", document.title, id);
+		}
+	}
+});
+
+// ==================== ScrollMagic ====================
 
 	// Init ScrollMagic
     var controller = new ScrollMagic.Controller();
@@ -112,9 +130,9 @@ $(window).on("scroll", function() {
 			.set($('#intro'), {className: '+=is-loaded'})
 			.to($('#preloader'), 0.7, {yPercent: 100, ease:Power4.easeInOut})
 			.set($('#preloader'), {className: '+=is-hidden'})
-			.from($('#intro .title'), 1, {autoAlpha: 0, ease:Power1.easeOut}, '-=0.2')
-			.from($('#intro p'), 0.7, {autoAlpha: 0, ease:Power1.easeOut}, '+=0.2')
-			.from($('.scroll-hint'), 0.3, {y: -20, autoAlpha: 0, ease:Power1.easeOut}, '+=0.1');
+			// .from($('#intro .title'), 1, {autoAlpha: 0, ease:Power1.easeOut}, '-=0.2')
+			// .from($('#intro p'), 0.7, {autoAlpha: 0, ease:Power1.easeOut}, '+=0.2')
+			// .from($('.scroll-hint'), 0.3, {y: -20, autoAlpha: 0, ease:Power1.easeOut}, '+=0.1');
 
 		return preloaderOutTl;
 	}
@@ -226,23 +244,6 @@ $(window).on("scroll", function() {
 	    .setPin("#slide01")
 	    .setTween(pinScene01Tl)
 	    .addTo(controller);
-
-	
-		//  bind scroll to anchor links
-		$(document).on("click", "a[href^='#']", function (e) {
-			var id = $(this).attr("href");
-			if ($(id).length > 0) {
-				e.preventDefault();
-
-				// trigger scroll
-				controller.scrollTo(id);
-
-					// if supported by the browser we can even update the URL.
-				if (window.history && window.history.pushState) {
-					history.pushState("", document.title, id);
-				}
-			}
-		});
 
 	}
 
