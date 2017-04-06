@@ -10,18 +10,20 @@ body {
           box-sizing: border-box;
 }
 
-.logo{
+.logo {
   position: absolute;
   z-index: 101;
   padding:10px;
   left: 1rem;
 }
 
-/* ========== 首頁影片 ========== */
-article.video{
-  background: #6b6255;
+.logo img {
+   height: 42px; 
+   margin-top: 5px; 
+   opacity: 0.85;
 }
 
+/* ========== 首頁影片 ========== */
 video{
   position: absolute;
   top: 50%;
@@ -29,6 +31,8 @@ video{
   transform: translateX(-50%) translateY(-50%);
   transition: 1s opacity;
   z-index: 101;
+  margin: 0;
+  padding: 0;
 }
 
 /*.stopfade { */
@@ -38,11 +42,12 @@ video{
 .homepage-menu {
   position: absolute;
   direction: rtl;
-  top: 1rem;
+  top: 5px;
   right: 0;  
   width: 100vw;
   z-index: 101;
   text-align: right;
+  font-size: 18px;
 }
 
 .homepage-menu ul{
@@ -127,48 +132,64 @@ h1{
 
 /*主打商品*/
 .slide#slide01{
-  color: rgba(255,255,255,0.8);
+  color: rgba(0,0,0,0.6);
 }
 
-.slide button{
-    border: 1px solid rgba(255,255,255,0.8);
+.slide#slide01 button{
+    border: 1px solid rgba(0,0,0,0.8);
     background: none;
     padding: 0.8rem 1.2rem;
     margin-right: 0.4rem;
     transition: 0.3s ease-in-out;
 }
-.slide button:hover{
+.slide#slide01 button:hover{
     background: rgba(255,255,255,0.15);
+}
+
+.slide#slide01 h1{
+    margin: 0 6rem;
+}
+.slide#slide01 .wrapper{
+  top: 40%;
+}
+
+.slide#slide01 section{
+    max-width: 400px;
+    margin: 0 6rem;
+}
+
+.slide#slide01 section p{
+  font-size: 16px;
 }
 
 
 /*最新消息*/
 .slide#slide03{
-  color: rgba(0,0,0,0.6);
+  color: rgba(255,255,255,0.8);
 }
 
-.slide h1{
+.slide#slide03 h1{
     margin: 0 6rem;
 }
 
-.slide section{
+.slide#slide03 section{
     max-width: 600px;
     margin: 1rem 6rem;
 }
 
-.slide section ul li {
+.slide#slide03 ul li {
     float: left;
     list-style:none;
     line-height: 32px;
     margin-left: -3rem;
 }
 
-.slide section ul li a{
-    color: rgba(0,0,0,0.6);
+.slide#slide03 ul li a{
+    color: rgba(255,255,255,0.8);    
     text-decoration: none;
     cursor: pointer;
 }
 
-.slide section ul li a:hover{
-    color: rgba(255,255,255,0.5);
+.slide#slide03 ul li a:hover{
+    color: lightcoral;
 }
