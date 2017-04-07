@@ -202,26 +202,8 @@ $(document).on("click", "a[href^='#']", function (e) {
 		    .addTo(controller);
 	    });
 
-	    // SCENE 5 - parallax effect on the intro slide
-	    // move bcg container when intro gets out of the the view
 
-	    var introTl = new TimelineMax();
-
-	    introTl
-	    	.to($('#intro header, .scroll-hint'), 0.2, {autoAlpha: 0, ease:Power1.easeNone})
-	    	.to($('#intro'), 0.7, {autoAlpha: 0.5, ease:Power1.easeNone}, 0);
-
-		var introScene = new ScrollMagic.Scene({
-	        triggerElement: '#intro', 
-	        triggerHook: 0,
-	        duration: "100%"
-	    })
-	    .setTween(introTl)
-	    .addTo(controller);
-
-	    // SCENE 6 - pin the first section
-	    // and update text
-
+/* ==================== 主打商品 ==================== */
 	    var pinScene01Tl = new TimelineMax();
 
 	    pinScene01Tl
@@ -244,7 +226,17 @@ $(document).on("click", "a[href^='#']", function (e) {
 	    .setPin("#slide01")
 	    .setTween(pinScene01Tl)
 	    .addTo(controller);
+	
 
+/* ==================== 最新消息 ==================== */
+	    var pinScene02 = new ScrollMagic.Scene({
+	        triggerElement: '#slide02', 
+	        triggerHook: 0,
+	        duration: "250%"
+	    })
+	    .setPin("#slide02")
+	    .setTween(new TimelineMax())
+	    .addTo(controller);
 	}
 
 }(jQuery));
