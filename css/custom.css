@@ -33,18 +33,19 @@ h1{
 /* ==================== 首頁影片 ==================== */
 video{
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translateX(-50%) translateY(-50%);
-  transition: 1s opacity;
-  z-index: 101;
-  margin: 0;
-  padding: 0;
+  right: 0; 
+  bottom: 0;
+  min-width: 100%; 
+  min-height: 100%;
+  width: auto; 
+  height: auto;
+  z-index: -100;
+  transition: 0.5s ease-in-out;  
 }
 
-/*.stopfade { */
-   /*opacity: .5;*/
-/*}*/
+.stopfade { 
+   opacity: .5;
+}
 
 .pause { 
   z-index: 101;
