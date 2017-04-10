@@ -1,4 +1,22 @@
+
 (function ($) {
+// ==================== News Modal ====================
+
+var modal = document.getElementById('myModal');
+var btn = document.getElementById("myBtn");
+var span = document.getElementsByClassName("close")[0];
+btn.onclick = function () {
+	modal.style.display = "block";
+}
+span.onclick = function () {
+	modal.style.display = "none";
+}
+window.onclick = function (event) {
+	if (event.target == modal) {
+		modal.style.display = "none";
+	}
+}
+
 
 // ==================== homepage video ====================
 var vid = document.getElementById("bg-video");
@@ -203,6 +221,8 @@ $(document).on("click", "a[href^='#']", function (e) {
 	    });
 
 
+
+
 /* ==================== 主打商品 ==================== */
 	    var pinScene01Tl = new TimelineMax();
 
@@ -225,7 +245,7 @@ $(document).on("click", "a[href^='#']", function (e) {
 	    })
 	    .setPin("#slide01")
 	    .setTween(pinScene01Tl)
-	    .addTo(controller);
+	    .addTo(controller)
 	
 
 /* ==================== 最新消息 ==================== */

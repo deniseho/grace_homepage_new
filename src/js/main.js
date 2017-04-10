@@ -1,5 +1,85 @@
+
 (function ($) {
-var wh = window.innerHeight;
+// ==================== News Modal ====================
+
+var modal = document.getElementById('myModal');
+var btn = document.getElementById("myBtn");
+var span = document.getElementsByClassName("close")[0];
+btn.onclick = function () {
+	modal.style.display = "block";
+}
+span.onclick = function () {
+	modal.style.display = "none";
+}
+window.onclick = function (event) {
+	if (event.target == modal) {
+		modal.style.display = "none";
+	}
+}
+
+
+// ==================== homepage video ====================
+var vid = document.getElementById("bg-video");
+var pauseButton = document.querySelector(".pause");
+
+if (window.matchMedia('(prefers-reduced-motion)').matches) {
+    vid.removeAttribute("autoplay");
+    vid.pause();
+    pauseButton.innerHTML = "<i class='fa fa-play fa-2x' aria-hidden='true'></i>";
+}
+
+function vidFade() {
+  vid.classList.add("stopfade");
+}
+
+vid.addEventListener('ended', function()
+{
+// only functional if "loop" is removed 
+vid.pause();
+// to capture IE10
+vidFade();
+}); 
+
+pauseButton.addEventListener("click", function() {
+  vid.classList.toggle("stopfade");
+  if (vid.paused) {
+    vid.play();
+    pauseButton.innerHTML = "<i class='fa fa-pause fa-2x' aria-hidden='true'></i>";
+  } else {
+    vid.pause();
+    pauseButton.innerHTML = "<i class='fa fa-play fa-2x' aria-hidden='true'></i>";
+  }
+})
+
+
+// ==================== nav dots ====================
+$('nav').hide();
+$(window).on("scroll", function() {
+    var scrollPosition = pageYOffset;
+    if (scrollPosition > $(window).height()) {
+        $('nav').show();
+    }else{
+        $('nav').hide();
+    }
+});
+
+//  bind scroll to anchor links
+$(document).on("click", "a[href^='#']", function (e) {
+	var id = $(this).attr("href");
+	if ($(id).length > 0) {
+		e.preventDefault();
+
+		// trigger scroll
+		controller.scrollTo(id);
+
+			// if supported by the browser we can even update the URL.
+		if (window.history && window.history.pushState) {
+			history.pushState("", document.title, id);
+		}
+	}
+});
+
+// ==================== ScrollMagic ====================
 
 	// Init ScrollMagic
     var controller = new ScrollMagic.Controller();
@@ -68,9 +148,9 @@ var wh = window.innerHeight;
 			.set($('#intro'), {className: '+=is-loaded'})
 			.to($('#preloader'), 0.7, {yPercent: 100, ease:Power4.easeInOut})
 			.set($('#preloader'), {className: '+=is-hidden'})
-			.from($('#intro .title'), 1, {autoAlpha: 0, ease:Power1.easeOut}, '-=0.2')
-			.from($('#intro p'), 0.7, {autoAlpha: 0, ease:Power1.easeOut}, '+=0.2')
-			.from($('.scroll-hint'), 0.3, {y: -20, autoAlpha: 0, ease:Power1.easeOut}, '+=0.1');
+			// .from($('#intro .title'), 1, {autoAlpha: 0, ease:Power1.easeOut}, '-=0.2')
+			// .from($('#intro p'), 0.7, {autoAlpha: 0, ease:Power1.easeOut}, '+=0.2')
+			// .from($('.scroll-hint'), 0.3, {y: -20, autoAlpha: 0, ease:Power1.easeOut}, '+=0.1');
 
 		return preloaderOutTl;
 	}
@@ -140,34 +220,20 @@ var wh = window.innerHeight;
 		    .addTo(controller);
 	    });
 
-	    // SCENE 5 - parallax effect on the intro slide
-	    // move bcg container when intro gets out of the the view
 
-	    var introTl = new TimelineMax();
 
-	    introTl
-	    	.to($('#intro header, .scroll-hint'), 0.2, {autoAlpha: 0, ease:Power1.easeNone})
-	    	// .to($('#intro .bcg'), 1.4, {y: '20%', ease:Power1.easeOut}, '-=0.2')
-	    	.to($('#intro'), 0.7, {autoAlpha: 0.5, ease:Power1.easeNone}, 0);
 
-		var introScene = new ScrollMagic.Scene({
-	        triggerElement: '#intro', 
-	        triggerHook: 0,
-	        duration: "100%"
-	    })
-	    .setTween(introTl)
-	    .addTo(controller);
-
-	    // SCENE 6 - pin the first section
-	    // and update text
-
+/* ==================== 主打商品 ==================== */
 	    var pinScene01Tl = new TimelineMax();
 
 	    pinScene01Tl
 	    	.to($('#slide01 h1'), 0.2, {autoAlpha: 0, ease:Power1.easeNone}, 1.5)
 	    	.to($('#slide01 section'), 0.2, {autoAlpha: 0, ease:Power1.easeNone}, 1.5)
-	    	// .set($('#slide01 h1'), {text: 'Rock Climbing22'})
-	    	// .set($('#slide01 p'), {text: "更多商品"})
+	    	.set($('#slide01 h1'), {text: '更多商品'})
+	    	.set($('#slide01 p'), {text: 
+                `<button>鏡框</button><button>太陽眼鏡</button><button>其他周邊</button>`
+            })
+	    	.to($('#slide01 .bcg'), 0.6, {scale: 1.2, transformOrigin: '0% 0%', ease:Power0.easeNone})            
 	    	.fromTo($('#slide01 h1'), 0.7, {y: '+=20'}, {y: 0, autoAlpha: 1, ease:Power1.easeOut}, '+=0.4')
 	    	.fromTo($('#slide01 section'), 0.6, {y: '+=20'}, {y: 0, autoAlpha: 1, ease:Power1.easeOut}, '-=0.6')
 	    	.set($('#slide01 h1'), {autoAlpha: 1}, '+=2');
@@ -179,53 +245,18 @@ var wh = window.innerHeight;
 	    })
 	    .setPin("#slide01")
 	    .setTween(pinScene01Tl)
-	    .addTo(controller);
+	    .addTo(controller)
+	
 
-	    // SCENE 7 - pin the second section
-	    // and update text
-
-	    var pinScene02Tl = new TimelineMax();
-
-	    pinScene02Tl
-	    	.to($('#slide02 h1'), 0.2, {autoAlpha: 0, ease:Power1.easeNone}, 1.5)
-	    	.to($('#slide02 section'), 0.2, {autoAlpha: 0, ease:Power1.easeNone}, 1.5)
-	    	.set($('#slide02 h1'), {text: "The Memories"})
-	    	.set($('#slide02 p'), {text: "You never climb the same mountain twice, not even in memory. Memory rebuilds the mountain, changes the weather, retells the jokes, remakes all the moves."})
-	    	.to($('#slide02 .bcg'), 0.6, {scale: 1.2, transformOrigin: '0% 0%', ease:Power0.easeNone})
-	    	.fromTo($('#slide02 h1'), 0.7, {y: '+=20'}, {y: 0, autoAlpha: 1, ease:Power1.easeOut}, '+=0.4')
-	    	.fromTo($('#slide02 section'), 0.6, {y: '+=20'}, {y: 0, autoAlpha: 1, ease:Power1.easeOut}, '-=0.6')
-	    	.set($('#slide02 h1'), {autoAlpha: 1}, '+=2.5');
-
+/* ==================== 最新消息 ==================== */
 	    var pinScene02 = new ScrollMagic.Scene({
 	        triggerElement: '#slide02', 
 	        triggerHook: 0,
-	        duration: "300%"
+	        duration: "250%"
 	    })
 	    .setPin("#slide02")
-	    .setTween(pinScene02Tl)
+	    .setTween(new TimelineMax())
 	    .addTo(controller);
-
-	    // change behaviour of controller to animate scroll instead of jump
-		controller.scrollTo(function (newpos) {
-			TweenMax.to(window, 1, {scrollTo: {y: newpos}, ease:Power1.easeInOut});
-		});
-
-		//  bind scroll to anchor links
-		$(document).on("click", "a[href^='#']", function (e) {
-			var id = $(this).attr("href");
-			if ($(id).length > 0) {
-				e.preventDefault();
-
-				// trigger scroll
-				controller.scrollTo(id);
-
-					// if supported by the browser we can even update the URL.
-				if (window.history && window.history.pushState) {
-					history.pushState("", document.title, id);
-				}
-			}
-		});
-
 	}
 
 }(jQuery));

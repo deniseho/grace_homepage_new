@@ -773,7 +773,8 @@ video{
   opacity: 0.7; }
 
 .slide#slide02{
-  color: rgba(255,255,255,0.8);
+    color: rgba(255,255,255,0.9);   
+    text-shadow: 0 0 6px rgba(0,0,0,0.8); 
 }
 
 .slide#slide02 .wrapper {
@@ -792,18 +793,21 @@ video{
 .slide#slide02 ul li {
     float: left;
     list-style:none;
-    line-height: 32px;
+    line-height: 36px;
     margin-left: -3rem;
 }
 
 .slide#slide02 ul li a{
-    color: rgba(255,255,255,0.8);    
+    color: rgba(255,255,255,0.85);   
+    text-shadow: 0 0 5px rgba(0,0,0,0.8); 
     text-decoration: none;
     cursor: pointer;
+    transition: 0.3s ease-in-out;
 }
 
 .slide#slide02 ul li a:hover{
-    color: lightcoral;
+    color: rgba(255,255,255,1);   
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.8); 
 }
 
 
@@ -829,4 +833,153 @@ video{
 #slide03 button:hover{
     border: 1px solid rgba(0,0,0,1);
     color: rgba(0,0,0,1);
+}
+
+/* ==================== MODAL ==================== */
+/* The Modal (background) */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 105;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.65);
+    -webkit-animation-name: fadeIn;
+    -webkit-animation-duration: 0.4s;
+    animation-name: fadeIn;
+    animation-duration: 0.4s
+}
+/* Modal Content */
+
+.modal-content {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    -webkit-animation-name: slideIn;
+    -webkit-animation-duration: 0.4s;
+    animation-name: slideIn;
+    animation-duration: 0.4s
+}
+/* The Close Button */
+
+.close {
+    position: fixed;
+    color: white;
+    right: 1rem;
+    font-size: 40px;
+    font-weight: bold;
+    z-index: 106;
+}
+
+.close:hover,
+.close:focus {
+    color:#ccc;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-body {
+    padding: 2px 16px;
+}
+
+@-webkit-keyframes slideIn {
+    from {
+        bottom: -300px;
+        opacity: 0
+    }
+    to {
+        bottom: 0;
+        opacity: 1
+    }
+}
+
+@keyframes slideIn {
+    from {
+        bottom: -300px;
+        opacity: 0
+    }
+    to {
+        bottom: 0;
+        opacity: 1
+    }
+}
+
+@-webkit-keyframes fadeIn {
+    from {
+        opacity: 0
+    }
+    to {
+        opacity: 1
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0
+    }
+    to {
+        opacity: 1
+    }
+}
+
+
+
+
+
+
+/* ========= 活動內容 ========= */
+
+.news-block {
+  transition: 0.8s linear;
+  position: absolute;
+  background: #9e978e;
+  display: inline-block;
+  top: 3vh;
+  left: 15%;
+  height: 580px;
+  width: 580px;
+  border-radius: 290px;
+  color: rgba(255,255,255,0.9);
+  box-shadow: inset 6px 0 0 5px rgba(255,255,255,0.5);
+}
+
+.news-block > *{
+  padding: 0 4rem 0 4.7rem;
+}
+
+/*日期*/
+.news-block > .news-date{
+  margin-top: 22.5%;
+  font-size: 20px;
+}
+
+/*標題*/
+.news-block > .news-title{
+  font-size: 24px;
+  margin-bottom: 6px;
+}
+
+/*內容*/
+.news-block > .news-text{
+  font-weight: 300;
+}
+
+
+
+/* ========= 活動圖片 ========= */
+
+.news-image{
+  position: absolute;
+  right: 0;
+}
+
+.news-image img{
+  float: right;
+  margin-right: 30%;
+  width: 60%;
+  margin-top: 16vh;
+  box-shadow: 0 0 10px rgba(0,0,0,0.8);
 }
