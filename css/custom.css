@@ -782,11 +782,27 @@ video{
 }
 
 .slide#slide02 .wrapper {
-  padding-top: 100px; 
+  padding-top: 0; 
 }
 
 .slide#slide02 h1{
-    margin: 0 6rem;
+    margin: 0 5.5rem;
+}
+
+.slide#slide02 .btn{
+    position: absolute;
+    left: 5.5rem;
+    bottom: -5rem;
+    border: 1px solid rgba(255,255,255,0.5);
+    color: rgba(255,255,255,0.8);
+    text-decoration: none;
+    background: none;
+    padding: 0.8rem 1.2rem;
+    transition: 0.3s ease-in-out;
+}
+.slide#slide02 .btn:hover{
+    border: 1px solid rgba(255,255,255,1);
+    color: rgba(255,255,255,1);
 }
 
 .slide#slide02 section{
@@ -880,7 +896,7 @@ video{
   overflow: auto;
   margin-left: 4rem;
   padding: 10px;
-  background: rgba(0,0,0,0.1);
+  /*background: rgba(0,0,0,0.1);*/
 }
 
 
