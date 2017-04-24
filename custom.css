@@ -1,0 +1,241 @@
+body {
+  font: 16px/1.5 'Open Sans', Helvetica, Helvetica Neue, Arial, sans-serif;
+  color: rgba(0, 0, 0, 0.9);
+}
+ 
+html, body {
+  height: 100%;
+  margin: 0;
+}
+* {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+    display:none;
+}
+
+ul{
+  list-style: none;
+}
+
+h1 {
+  margin-top: 0;
+}
+
+.logo{
+  position: absolute;
+  z-index: 99;
+  padding:10px;
+  left: 1rem;
+}
+
+article{
+  /*background-color: #6d695c;*/
+  /*background-image:
+  repeating-linear-gradient(120deg, rgba(255,255,255,.1), rgba(255,255,255,.1) 1px, transparent 1px, transparent 60px),
+  repeating-linear-gradient(60deg, rgba(255,255,255,.1), rgba(255,255,255,.1) 1px, transparent 1px, transparent 60px),
+  linear-gradient(60deg, rgba(0,0,0,.1) 25%, transparent 25%, transparent 75%, rgba(0,0,0,.1) 75%, rgba(0,0,0,.1)),
+  linear-gradient(120deg, rgba(0,0,0,.1) 25%, transparent 25%, transparent 75%, rgba(0,0,0,.1) 75%, rgba(0,0,0,.1));
+  background-size: 70px 120px;
+  border-top: 5px solid rgba(255,255,255,0.6);
+  border-bottom: 5px solid rgba(255,255,255,0.6);*/
+  background: #fff;
+}
+
+article{
+  margin: 0 auto;
+  height: 100vh; 
+  width: 100vw;
+}
+
+
+/* ========== 首頁 ========== */
+article.video{
+  background: #6b6255;
+}
+
+video{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  transition: 1s opacity;
+}
+
+.stopfade { 
+   opacity: .5;
+}
+
+.homepage-menu {
+  position: ab;
+  direction: rtl;
+  top: 0;
+  right: 0;  
+  width: 100%;
+  z-index: 9;
+}
+
+.homepage-menu ul{
+  transition: 0.3s ease-in-out;  
+}
+.homepage-menu ul li{
+  /*background: rgba(0,0,0,.2);*/
+  list-style: none;
+  text-align: center;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  transition: 0.3s ease-in-out;  
+  display: inline;
+  position: relative;
+}
+.homepage-menu ul li:hover{
+  transition: 0.3s ease-in-out;  
+  background: rgba(0,0,0,.3);  
+}
+
+.homepage-menu ul li:hover a{
+  color: rgba(255,255,255,1);
+  transition: 0.3s ease-in-out;  
+}
+.homepage-menu ul li a{
+  color: rgba(255,255,255,0.8);
+  text-decoration: none;
+  transition: 0.3s ease-in-out;    
+}
+
+.homepage-text{ 
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  direction: rtl;
+  color: rgba(255,255,255, 0.9);
+  padding: 1rem;
+  width: 100vh;
+  font-weight: 200;
+}
+
+.homepage-text h1{
+  text-shadow: 1px 1px 4px rgba(0,0,0,.3);    
+  font-size: 30px;
+  margin:0;
+}
+
+.homepage-text div{
+  font-size: 18px;
+  line-height: 30px;
+}
+
+.pause { 
+  position: absolute;
+  bottom: 0;
+  left: 2em;
+  width: 80px;
+  text-align: center;
+  padding: .4rem;
+  border: none; 
+  margin: 1rem auto; 
+  font-size: 0.8rem;
+  background: rgba(255,255,255,0.35);
+  color: #333;
+  cursor: pointer;
+  transition: .3s background;
+}
+.pause:hover { 
+   background: rgba(0,0,0,0.5);
+   color: #cccccc;
+}
+
+/* ========= 頁面========= */
+
+.content-block > * {
+  right: 0;
+  position: absolute;
+  max-width: 100vw;
+  z-index: -1;
+}
+
+.news .content-block > div{
+  left: 15vw;
+  width: 500px;
+  color: #777;
+}
+
+.news .content-block > div h3{
+  color: #666;
+}
+
+.news .content-block > ul{
+  top: 20vh;
+  right: 38vw;
+  border: 1px solid #fff;
+  padding: 1rem 2rem;
+  background: rgba(255,255,255,0.3);
+  transition: 0.3s linear;    
+}
+
+.info .content-block > ul{
+  top: 20vh;
+  right: 58vw;
+  border: 1px solid #cccccc;
+  background: rgba(255,255,255,0.8);  
+  padding: 1rem 2rem;
+  transition: 0.3s linear;
+}
+
+.info .content-block > ul:hover{
+  background: rgba(255,255,255,0.95);
+  transition: 0.3s linear;  
+}
+
+
+.news .content-block > ul > li > a,
+.info .content-block > ul > li > a{
+  text-decoration: none;
+  color: #555;
+  line-height: 30px;
+}
+
+.news .content-block > ul > li > a:hover,
+.info .content-block > ul > li > a:hover{
+  color: lightcoral;
+}
+
+
+/* ========= content title ========= */
+.content-title{
+  transition: 0.1s linear;
+  position: absolute;
+  background: #9e978e;
+  display: inline-block;
+  margin-top: 1rem;
+  height: 250px;
+  width: 125px;
+  border-bottom-right-radius: 250px;
+  border-top-right-radius: 250px;
+}
+
+.content-title > h1{
+  color: #fff;
+  font-size: 30px;
+  width: 1px;
+  display: inline-block;
+  margin-top: 1.8rem;
+  margin-left: 1.4rem;
+}
+
+.content-title > .eng-title{
+  color: #fff;
+  width: 1px;
+  margin-left: 2.3rem;
+  word-wrap: break-word;
+  display: inline-block;
+  border-left: 1px solid white;
+  padding-left: 8px;
+}
+
+.history .content-title > .eng-title{
+  margin-top: 2.6rem;
+}
